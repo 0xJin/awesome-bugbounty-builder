@@ -5,7 +5,7 @@
 
 Awesome Bug bounty builder Project - ALL common Tools for find your Vulnerabilities.
 
-Tested on Debian.
+**Tested on Debian.**
 
 
 ![bb](https://user-images.githubusercontent.com/81621963/147457586-79ac41eb-f995-455b-a144-f80a5783047a.PNG)
