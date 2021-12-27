@@ -3,7 +3,9 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/0xJin/awesome-bugbounty-builder/issues)
 
 
-Awesome Bug bounty builder Project
+Awesome Bug bounty builder Project - ALL common Tools for find your Vulnerabilities.
+
+Tested on Debian.
 
 
 ![bb](https://user-images.githubusercontent.com/81621963/147457586-79ac41eb-f995-455b-a144-f80a5783047a.PNG)
