@@ -358,6 +358,7 @@ git clone https://github.com/ffuf/ffuf
 cd fuff/
 go get
 go build
+cp ffuf /usr/local/bin
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
