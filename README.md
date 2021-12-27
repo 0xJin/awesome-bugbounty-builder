@@ -25,6 +25,7 @@ $ ./awesome-bugbounty-builder.sh
 
 ### Which tools You will find here
 
+```
 Amass -
 Sublister -
 Gauplus -
@@ -55,6 +56,7 @@ qsreplace -
 exiftool -
 XSRFProbe -
 XXE Exploiter
+```
 
 
 ---
