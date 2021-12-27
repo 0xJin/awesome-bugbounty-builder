@@ -19,6 +19,8 @@ sudo apt-get install git -y
 sudo apt-get install rename -y
 sudo apt-get install xargs -y
 sudo apt-get install golang -y
+sudo apt install nodejs 
+sudo apt install npm 
 
 # This script is created by Jin.
 
@@ -682,6 +684,24 @@ python3 setup.py install
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("CSRF TOOL")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} for find csrf vulns..."
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 # Installing Paramspider tool
 
 echo -e "${RED}Installing PARAMSPIDER tool for find vulnerable parameters${ENDCOLOR}"
@@ -691,6 +711,53 @@ pip3 install -r requirements.txt
 chmod +x paramspider.py
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("paramspider")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} for find Parameters to exploit..."
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+# Installing XXE Exploiter
+
+echo -e "${RED}Installing XXE exploiter tool for find xxe vulns${ENDCOLOR}"
+git clone https://github.com/luisfontes19/xxexploiter.git
+cd xxexploiter/
+npm install -g xxexploiter
+npm install
+npm run build
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("XXE EXPLOITER")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} for find XXE vulns..."
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
 
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
