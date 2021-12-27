@@ -25,36 +25,37 @@ $ ./awesome-bugbounty-builder.sh
 
 ### Which tools You will find here
 
-> Amass -
-> Sublister -
-> Gauplus -
-> httpx -
-> gf + patterns -
-> kxss -
-> sqlmap -
-> commix -
-> tplmap -
-> hydra -
-> john the ripper -
-> evilwinrm -
-> Arjun -
-> Paramspider -
-> NoSQLmap -
-> NMAP -
-> nikto -
-> FFUF -
-> 403-Bypass -
-> Gobuster -
-> Seclists -
-> Hash-identifier -
-> XSSMAP -
-> Smuggler -
-> SSRFmap -
-> gmapsapiscanner -
-> qsreplace -
-> exiftool -
-> XSRFProbe -
-> XXE Exploiter
+Amass -
+Sublister -
+Gauplus -
+httpx -
+gf + patterns -
+kxss -
+sqlmap -
+commix -
+tplmap -
+hydra -
+john the ripper -
+evilwinrm -
+Arjun -
+Paramspider -
+NoSQLmap -
+NMAP -
+nikto -
+FFUF -
+403-Bypass -
+Gobuster -
+Seclists -
+Hash-identifier -
+XSSMAP -
+Smuggler -
+SSRFmap -
+gmapsapiscanner -
+qsreplace -
+exiftool -
+XSRFProbe -
+XXE Exploiter
+
 
 ---
 
