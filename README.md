@@ -53,7 +53,7 @@ $ ./awesome-bugbounty-builder.sh
 > gmapsapiscanner -
 > qsreplace -
 > exiftool -
-> XSRFProbe 
+> XSRFProbe -
 > XXE Exploiter
 
 ---
