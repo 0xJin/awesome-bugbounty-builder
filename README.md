@@ -53,3 +53,15 @@ $ ./awesome-bugbounty-builder.sh
 > exiftool -
 > XSRFProbe 
 
+
+### Bug Bounty TIPS and Usage of tools + One Liner TIPS
+
+
+# One liner *RECON* for FUZZ XSS
+
+```
+$ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
+$ cat domain.txt | gauplus -random-agent -t 200 | gf xss | kxss | tee domain2.txt
+```
+
+# 
