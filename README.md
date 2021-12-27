@@ -1,6 +1,8 @@
 # Awesome Bug Bounty Builder
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/0xJin/awesome-bugbounty-builder/issues)
+
+
 Awesome Bug bounty builder Project
 
 
