@@ -54,6 +54,7 @@ $ ./awesome-bugbounty-builder.sh
 > qsreplace -
 > exiftool -
 > XSRFProbe 
+> XXE Exploiter
 
 ---
 
