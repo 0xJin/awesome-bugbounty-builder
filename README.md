@@ -246,6 +246,13 @@ $ amass enum -passive -brute -d redacted.com | gau | egrep -v '(.css|.svg)' | wh
 ---
 
 
+# For API-KEYS 
+
+```
+$ use gauplus and paramspider , after you can grep words like "api" or "key" and use gmapsapiscanner for see if is vulnerable.
+```
+
+
 ### Thanks Follow me on Twitter
 
 [@0xJin](https://twitter.com/0xJin) - This tool is made from 0xJin
