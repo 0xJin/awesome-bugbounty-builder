@@ -5,7 +5,7 @@ sudo apt-get full-upgrade -y
 
 sudo apt-get install python3-pip -y
 sudo apt-get install python-pip -y
-sudo apt-get install -y docker.io
+sudo apt-get install docker.io -y
 sudo apt-get install libcurl4-openssl-dev -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install jq -y
