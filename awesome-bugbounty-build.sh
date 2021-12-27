@@ -5,6 +5,7 @@ sudo apt-get full-upgrade -y
 
 sudo apt-get install python3-pip -y
 sudo apt-get install python-pip -y
+sudo apt-get install -y docker.io
 sudo apt-get install libcurl4-openssl-dev -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install jq -y
@@ -246,6 +247,7 @@ echo -e "${RED}Tool for hacking MongoDB${ENDCOLOR}"
 git clone https://github.com/codingo/NoSQLMap.git
 cd NoSQLMap/
 sudo python setup.py install
+sudo systemctl enable docker --now
 sudo docker build -t nosqlmap .
 sudo docker-compose build 
 sudo docker-compose run nosqlmap
