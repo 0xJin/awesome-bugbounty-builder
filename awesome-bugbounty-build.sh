@@ -759,6 +759,34 @@ done
 
 bar::stop
 
+# Installing RUSH
+
+echo -e "${RED}Installing RUSH TOOL${ENDCOLOR}"
+git clone https://github.com/shenwei356/rush.git
+cd rush/
+go build
+cp rush /usr/local/bin
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("RUSH")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} i'm more fast then parallel..."
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
 
