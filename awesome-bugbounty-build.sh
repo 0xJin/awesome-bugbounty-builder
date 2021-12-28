@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo -e "${GREEN}UPDATING${ENDCOLOR}"
 sudo apt-get update -y
 sudo apt-get full-upgrade -y
 
+echo -e "${GREEN}INSTALLING DEPENDENCIES${ENDCOLOR}"
 sudo apt-get install python3-pip -y
 sudo apt-get install python-pip -y
 sudo apt-get install docker.io -y
