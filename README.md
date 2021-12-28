@@ -363,4 +363,4 @@ https://github.com/Karanxa/Bug-Bounty-Wordlists
 
 ### Thanks Follow me on Twitter
 
-[@0xJin](https://twitter.com/0xJin) - This tool is made from 0xJin
+[@0xJin](https://twitter.com/0xJin) - This tool is made from 0xJin ¯\\_(ツ)_/¯
