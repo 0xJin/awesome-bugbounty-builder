@@ -306,6 +306,11 @@ done
 
 bar::stop
 
+# Install RustScan
+echo -e "${RED}Tool for network scanning better than nmap${ENDCOLOR}"
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:1.10.0'
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
 # Intall NMAP
 
 echo -e "${RED}Tool for network scanning${ENDCOLOR}"
