@@ -281,7 +281,41 @@ $ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
 ---
 
 
-#
+# Bypass RATE-LIMIT by adding
+
+```
+X-Originating-IP: IP
+X-Forwarded-For: IP
+X-Remote-IP: IP
+X-Remote-Addr: IP
+X-Client-IP: IP
+X-Host: IP
+X-Forwared-Host: IP
+```
+
+
+---
+
+
+# Find Access Token with FFUF and GAUPLUS
+
+```
+$ cat domains.txt | sed 's/https\?:\/\///' | gau > domains2.txt
+$ cat domains2.txt | grep -P "\w+\.js(\?|$)" | sort -u > jsurls.txt
+$ ffuf -mc 200 w jsurls.txt:HFUZZ -u HFUZZ -replay-proxy http://127.0.0.1:8080
+// Use Scan Check Builder Burp extension, add passive profile to extract “accessToken” or “access_token”
+// Extract found tokens and validate with https://github.com/streaak/keyhacks
+```
+
+
+---
+
+
+# Find CORS vulnerabilities
+
+```
+$ amass enum -d redacted.com | httpx -threads 300 -follow-redirects -silent | rush -j200 'curl -m5 -s -I -H "Origin: evil.com" {} | [[ $(grep -c "evil.com") -gt 0 ]] && printf "\n3[0;32m[VUL TO CORS] 3[0m{}"' 2>/dev/null
+```
 
 ### Thanks Follow me on Twitter
 
