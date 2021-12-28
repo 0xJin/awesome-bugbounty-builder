@@ -57,6 +57,7 @@ exiftool
 XSRFProbe 
 XXE Exploiter
 Rush
+LFISuite
 ```
 
 
