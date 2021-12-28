@@ -29,20 +29,20 @@ $ ./awesome-bugbounty-builder.sh
 Amass 
 Sublister 
 Gauplus 
-httpx 
-gf + patterns 
-kxss 
-sqlmap 
-commix 
-tplmap 
-hydra 
-john the ripper 
-evilwinrm 
+HTTPX
+Gf + patterns 
+Kxss 
+Sqlmap 
+Commix 
+Tplmap 
+HYDRA 
+John the ripper 
+Evilwinrm 
 Arjun 
 Paramspider 
 NoSQLmap 
 NMAP 
-nikto 
+Nikto 
 FFUF 
 403-Bypass 
 Gobuster 
@@ -51,11 +51,12 @@ Hash-identifier
 XSSMAP 
 Smuggler 
 SSRFmap 
-gmapsapiscanner 
-qsreplace 
+Gmapsapiscanner 
+Qsreplace 
 exiftool 
 XSRFProbe 
 XXE Exploiter
+Rush
 ```
 
 
