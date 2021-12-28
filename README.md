@@ -355,6 +355,7 @@ Host: evil.com
 
 ```
 https://github.com/six2dez/OneListForAll/releases
+https://github.com/Karanxa/Bug-Bounty-Wordlists
 ```
 
 
