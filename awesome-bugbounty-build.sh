@@ -789,6 +789,33 @@ done
 
 bar::stop
 
+# Installing LFISuite tool
+
+echo -e "${RED}Installing LFI TOOL${ENDCOLOR}"
+git clone https://github.com/D35m0nd142/LFISuite.git
+cd LFISuite/
+chmod +x lfisuite.py
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("LFISuite")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} i want find ../../../../../etc/passwd..."
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
 
