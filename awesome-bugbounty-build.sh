@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This script is created by Jin.
+
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\033[0;33m"
+ENDCOLOR="\e[0m"
+
 echo -e "${GREEN}UPDATING${ENDCOLOR}"
 sudo apt-get update -y
 sudo apt-get full-upgrade -y
@@ -23,13 +30,6 @@ sudo apt-get install xargs -y
 sudo apt-get install golang -y
 sudo apt install nodejs 
 sudo apt install npm 
-
-# This script is created by Jin.
-
-RED="\e[31m"
-GREEN="\e[32m"
-YELLOW="\033[0;33m"
-ENDCOLOR="\e[0m"
 
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
