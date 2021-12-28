@@ -65,7 +65,7 @@ $ ./awesome-bugbounty-builder.sh
 - XSRFProbe 
 - XXE Exploiter
 - Rush
-
+- Rustscan
 
 
 ---
