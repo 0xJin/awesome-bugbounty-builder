@@ -66,7 +66,7 @@ $ ./awesome-bugbounty-builder.sh
 - XXE Exploiter
 - Rush
 - Rustscan
-
+- LFISuite
 
 ---
 
