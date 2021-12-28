@@ -32,7 +32,6 @@ $ chmod +x awesome-bugbounty-builder.sh
 $ ./awesome-bugbounty-builder.sh
 ```
 
-
 ## Tools You will find here 
 
 - Amass 
@@ -66,6 +65,7 @@ $ ./awesome-bugbounty-builder.sh
 - XSRFProbe 
 - XXE Exploiter
 - Rush
+
 
 
 ---
