@@ -67,6 +67,7 @@ $ ./awesome-bugbounty-builder.sh
 - Rush
 - Rustscan
 - LFISuite
+- Wapiti
 
 ---
 
