@@ -317,6 +317,11 @@ echo -e "${RED}Tool for network scanning${ENDCOLOR}"
 sudo apt-get install nmap
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
+# Install wapiti
+echo -e "${RED}Tool for web application vulnerability scanner${ENDCOLOR}"
+sudo apt-get install wapiti
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
 # Install nikto
 
 echo -e "${RED}Tool for find CGI vulnerabilities${ENDCOLOR}"
