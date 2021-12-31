@@ -317,6 +317,17 @@ echo -e "${RED}Tool for network scanning${ENDCOLOR}"
 sudo apt-get install nmap
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
+# Install zenmap
+
+echo -e "${RED}Graphical Interface of nmap${ENDCOLOR}"
+sudo apt-get install zenmap
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+# Install wfuzz
+echo -e "${RED}Tool for brutforcing web dir${ENDCOLOR}"
+sudo apt install wfuzz
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
 # Install wapiti
 echo -e "${RED}Tool for web application vulnerability scanner${ENDCOLOR}"
 sudo apt-get install wapiti
