@@ -68,7 +68,7 @@ $ ./awesome-bugbounty-builder.sh
 - Rustscan
 - LFISuite
 - Wapiti
-- Nuclei
+- Nuclei + template
 
 ---
 
