@@ -399,10 +399,7 @@ bar::stop
 # Install gobuster
 
 echo -e "${RED}GOBUSTER Another tool for Bruteforce directories${ENDCOLOR}"
-wget https://github.com/OJ/gobuster/releases/download/v3.0.1/gobuster-all.7z
-7z x gobuster-all.7z
-cd gobuster-linux-amd64/
-chmod +x gobuster
+apt-get install gobuster
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
