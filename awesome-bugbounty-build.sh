@@ -364,7 +364,7 @@ echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 # Install php-reverse-shell.php
 
-https://github.com/pentestmonkey/php-reverse-shell.git
+git clone https://github.com/pentestmonkey/php-reverse-shell.git
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 # Powerfull tool for scanning website
@@ -418,11 +418,7 @@ echo -e "${GREEN}Successfully${ENDCOLOR}"
 # Install john the ripper
 
 echo -e "${RED}JOHN THE RIPPER best tool for cracking password${ENDCOLOR}"
-wget http://www.openwall.com/john/g/john-1.7.9-jumbo-7.tar.gz
-tar -xvzf john-1.7.9-jumbo-7.tar.gz
-mv john-1.7.9-jumbo-7 john
-make clean linux-x86-64
-make clean linux-x86-sse2
+apt-get install john
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 . <(curl -sLo- "https://git.io/progressbar")
