@@ -615,9 +615,8 @@ bar::stop
 # Installing qsreplace tool
 
 echo -e "${RED}Installing qsreplace for change words as we want!${ENDCOLOR}"
-git clone https://github.com/tomnomnom/qsreplace.git
-cd qsreplace/
-go build
+go get -u github.com/tomnomnom/qsreplace
+cd ~/go/bin
 cp qsreplace /usr/local/bin
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
