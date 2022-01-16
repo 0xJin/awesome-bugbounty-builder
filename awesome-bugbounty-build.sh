@@ -819,6 +819,34 @@ done
 
 bar::stop
 
+# Installing NUCLEI + Template
+
+echo -e "${RED}Installing NUCLEI TOOL + TEMPLATE${ENDCOLOR}"
+apt-get install nuclei
+git clone https://github.com/projectdiscovery/nuclei-templates.git
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("LFISuite")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} i want find all CVES"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+
+
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
 
