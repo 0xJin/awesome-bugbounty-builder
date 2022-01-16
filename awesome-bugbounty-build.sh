@@ -470,12 +470,13 @@ bar::stop
 #Install GF powerfull tool for find parameters.
 
 echo -e "${RED}Installing GF e PATTERNS for find parameters${ENDCOLOR}"
-git clone https://github.com/tomnomnom/gf
+go get -u github.com/tomnomnom/gf
+https://github.com/tomnomnom/gf.git
 git clone https://github.com/1ndianl33t/Gf-Patterns
-cd gf/
-go build
+cd ~/go/bin
 cp gf /usr/local/bin
 mkdir /root/.gf
+cd ~/Bugbounty/
 cd /gf/examples
 cp * /root/.gf
 cd ~/Bugbounty/Gf-Patterns
