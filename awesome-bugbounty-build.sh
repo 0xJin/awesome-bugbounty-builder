@@ -831,7 +831,7 @@ echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 bar::start
 
-StuffToDo=("LFISuite")
+StuffToDo=("NUCLEI")
 
 TotalSteps=${#StuffToDo[@]}
 
