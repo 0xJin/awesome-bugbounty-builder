@@ -29,7 +29,9 @@ sudo apt-get install rename -y
 sudo apt-get install xargs -y
 sudo apt-get install golang -y
 sudo apt install nodejs 
-sudo apt install npm 
+sudo apt install npm
+sudo apt install python3-pip
+sudo pip3 install uro
 
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
 
@@ -844,6 +846,34 @@ for Stuff in ${StuffToDo[@]}; do
 done
 
 bar::stop
+
+# Installing Freq
+
+echo -e "${RED}Installing FREQ TOOL${ENDCOLOR}"
+go get -u github.com/takshal/freq
+cd ~/go/bin
+cp freq /usr/local/bin
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("FREQ")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} I want find SQLI and XSS"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 
 
 
