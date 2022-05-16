@@ -473,7 +473,6 @@ bar::stop
 
 echo -e "${RED}Installing GF e PATTERNS for find parameters${ENDCOLOR}"
 go get -u github.com/tomnomnom/gf
-https://github.com/tomnomnom/gf.git
 git clone https://github.com/1ndianl33t/Gf-Patterns
 cd ~/go/bin
 cp gf /usr/local/bin
