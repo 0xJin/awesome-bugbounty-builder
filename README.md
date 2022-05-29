@@ -71,6 +71,7 @@ $ ./awesome-bugbounty-builder.sh
 - Nuclei + template
 - URO
 - Freq
+- Subzy
 
 ---
 
