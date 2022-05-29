@@ -472,7 +472,7 @@ bar::stop
 #Install GF powerfull tool for find parameters.
 
 echo -e "${RED}Installing GF e PATTERNS for find parameters${ENDCOLOR}"
-go get -u github.com/tomnomnom/gf
+go install -v github.com/tomnomnom/gf@latest
 git clone https://github.com/1ndianl33t/Gf-Patterns
 cd ~/go/bin
 cp gf /usr/local/bin
@@ -616,7 +616,7 @@ bar::stop
 # Installing qsreplace tool
 
 echo -e "${RED}Installing qsreplace for change words as we want!${ENDCOLOR}"
-go get -u github.com/tomnomnom/qsreplace
+go install -v github.com/tomnomnom/qsreplace@latest
 cd ~/go/bin
 cp qsreplace /usr/local/bin
 cd ~/Bugbounty/
@@ -849,7 +849,7 @@ bar::stop
 # Installing Freq
 
 echo -e "${RED}Installing FREQ TOOL${ENDCOLOR}"
-go get -u github.com/takshal/freq
+go install -v github.com/takshal/freq@latest
 cd ~/go/bin
 cp freq /usr/local/bin
 cd ~/Bugbounty/
@@ -866,6 +866,32 @@ TotalSteps=${#StuffToDo[@]}
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
   echo "Create ${Stuff} I want find SQLI and XSS"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+# Installing SUBZY
+echo -e "${RED}Installing SUBZY TOOL${ENDCOLOR}"
+go install -v github.com/lukasikic/subzy@latest
+cd ~/go/bin
+cp subzy /usr/local/bin
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("SUBZY")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} I want takeover all subdomains"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
