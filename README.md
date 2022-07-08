@@ -64,7 +64,6 @@ $ ./awesome-bugbounty-builder.sh
 - exiftool 
 - XSRFProbe 
 - XXE Exploiter
-- Rush
 - Rustscan
 - LFISuite
 - Wapiti
