@@ -71,7 +71,7 @@ $ ./awesome-bugbounty-builder.sh
 - URO
 - Freq
 - Subzy
-- OpenRedirectX
+- OpenRedireX
 
 ---
 
