@@ -899,6 +899,31 @@ done
 
 bar::stop
 
+#Installing OpenRedirectX
+echo -e "${RED}Installing OPENREDIRECT TOOL${ENDCOLOR}"
+git clone https://github.com/devanshbatham/OpenRedireX
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("OPENREDIRECTX")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} I redirect all subdomains"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+
 
 
 
