@@ -72,6 +72,7 @@ $ ./awesome-bugbounty-builder.sh
 - Freq
 - Subzy
 - OpenRedireX
+- GooFuzz
 
 ---
 
