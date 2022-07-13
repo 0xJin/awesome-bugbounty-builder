@@ -73,6 +73,9 @@ $ ./awesome-bugbounty-builder.sh
 - Subzy
 - OpenRedireX
 - GooFuzz
+- Fuxploider
+- CRLFUZZ
+- CENT
 
 ---
 
