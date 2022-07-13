@@ -928,6 +928,7 @@ echo -e "${RED}Installing GooFuzz${ENDCOLOR}"
 git clone https://github.com/m3n0sd0n4ld/GooFuzz.git
 cd GooFuzz
 chmod +x GooFuzz
+cp GooFuzz /usr/local/bin
 cd ~/Bugbounty/
 echo -e "${GREEN}Successfully${ENDCOLOR}"
 
