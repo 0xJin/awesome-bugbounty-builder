@@ -935,7 +935,7 @@ echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 bar::start
 
-StuffToDo=("OPENREDIRECTX")
+StuffToDo=(GOO FUZZ")
 
 TotalSteps=${#StuffToDo[@]}
 
@@ -948,6 +948,86 @@ for Stuff in ${StuffToDo[@]}; do
 done
 
 bar::stop
+
+#Installing CRLFUZZ
+echo -e "${RED}Installing CRLFUZZ${ENDCOLOR}"
+curl -sSfL https://git.io/crlfuzz | sh -s -- -b /usr/local/bin
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("CRLFUZZ")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} CRLF TOOL"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+#Installing CENT
+echo -e "${RED}Installing CENT TOOL${ENDCOLOR}"
+go install github.com/xm1k3/cent@latest
+cd ~/go/bin
+cp cent /usr/local/bin
+cent init
+cd ~/Bugbounty/
+cent -p cent-nuclei-templates -k
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("CENT")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} CENT TOOL"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+#Installing fuxploider
+echo -e "${RED}Installing FUXPLOIDER FOR FIND UPLOAD EXTENSION${ENDCOLOR}"
+git clone https://github.com/almandin/fuxploider.git
+cd fuxploider
+pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("FUXPLOIDER")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} fuxploider FOR find upload extension"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 
 
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
