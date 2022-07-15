@@ -76,6 +76,7 @@ $ ./awesome-bugbounty-builder.sh
 - Fuxploider
 - CRLFUZZ
 - CENT
+- Liffy
 
 ---
 
