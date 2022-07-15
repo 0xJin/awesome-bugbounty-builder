@@ -1029,6 +1029,32 @@ done
 
 bar::stop
 
+#Installing Liffy
+echo -e "${RED}Installing Liffy${ENDCOLOR}"
+git clone https://github.com/hvqzao/liffy.git
+cd liffy
+chmod +x liffy.py
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("LIFFY")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} LIFFY FOR FIND LOCAL FILE INCLUSION VULNS"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 
 
 echo -e "${GREEN}This Automate Script is made by ----------------${ENDCOLOR}${RED}0xJin${ENDCOLOR}${GREEN}-----------------${ENDCOLOR}"
