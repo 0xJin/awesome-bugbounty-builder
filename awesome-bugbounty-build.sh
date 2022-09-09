@@ -942,7 +942,7 @@ TotalSteps=${#StuffToDo[@]}
 
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
-  echo "Create ${Stuff} GooFuzz OSINT TOOL"
+  echo "Create ${Stuff} OSINT TOOL"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
@@ -994,7 +994,7 @@ TotalSteps=${#StuffToDo[@]}
 
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
-  echo "Create ${Stuff} CENT TOOL"
+  echo "Create ${Stuff} TOOL"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
@@ -1021,7 +1021,7 @@ TotalSteps=${#StuffToDo[@]}
 
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
-  echo "Create ${Stuff} fuxploider FOR find upload extension"
+  echo "Create ${Stuff} FOR find upload extension"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
@@ -1047,13 +1047,40 @@ TotalSteps=${#StuffToDo[@]}
 
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
-  echo "Create ${Stuff} LIFFY FOR FIND LOCAL FILE INCLUSION VULNS"
+  echo "Create ${Stuff} FOR FIND LOCAL FILE INCLUSION VULNS"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
 done
 
 bar::stop
+
+#Installing SSRF-tool
+echo -e "${RED}Installing SSRF-tool${ENDCOLOR}"
+git clone https://github.com/R0X4R/ssrf-tool.git
+cd ssrf-tool
+go build ssrftool.go && mv ssrftool /usr/local/bin/
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("SSRF-tool")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} FOR fining ssrf vulnerabilities"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 
 
 
