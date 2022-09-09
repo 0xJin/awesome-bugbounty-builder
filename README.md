@@ -77,6 +77,7 @@ $ ./awesome-bugbounty-builder.sh
 - CRLFUZZ
 - CENT
 - Liffy
+- SSRF-tool
 
 ---
 
@@ -209,6 +210,14 @@ http://whitelisted@127.0.0.1
 http://0x7f000001/
 http://017700000001
 http://0177.00.00.01
+```
+
+
+### Best SSRF Tips using this tool :
+
+```sh
+$ amass enum -passive -brute -d yahoo.com -silent | httpx -silent | tee domains.txt | ssrf-tool -domains domains.txt -payloads ssrf.txt -silent=false -paths=true -patterns patterns.txt
+$ echo "twitter.com" | waybackurls | tee domains.txt; ssrftool -domains domains.txt -silent=false -paths=false -payloads ssrf.txt
 ```
 
 
