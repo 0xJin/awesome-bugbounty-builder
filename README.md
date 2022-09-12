@@ -78,6 +78,7 @@ $ ./awesome-bugbounty-builder.sh
 - CENT
 - Liffy
 - SSRF-tool
+- Infoooze
 
 ---
 
