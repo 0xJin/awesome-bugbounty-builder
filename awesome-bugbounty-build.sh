@@ -1073,13 +1073,41 @@ TotalSteps=${#StuffToDo[@]}
 
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
-  echo "Create ${Stuff} FOR fining ssrf vulnerabilities"
+  echo "Create ${Stuff} FOR finding ssrf vulnerabilities"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
 done
 
 bar::stop
+
+#Installing Infoooze
+echo -e "${RED}Installing Infoooze${ENDCOLOR}"
+git clone https://github.com/devXprite/infoooze.git
+cd infoooze
+npm install
+node index.js
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("Infoooze")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} FOR finding details about targets"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
 
 
 
