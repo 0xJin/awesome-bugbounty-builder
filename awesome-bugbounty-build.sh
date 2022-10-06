@@ -936,7 +936,7 @@ echo -e "${GREEN}Successfully${ENDCOLOR}"
 
 bar::start
 
-StuffToDo=(GOO FUZZ")
+StuffToDo=("GOO FUZZ")
 
 TotalSteps=${#StuffToDo[@]}
 
@@ -1101,6 +1101,33 @@ TotalSteps=${#StuffToDo[@]}
 for Stuff in ${StuffToDo[@]}; do
   # Do stuff
   echo "Create ${Stuff} FOR finding details about targets"
+  StepsDone=$((${StepsDone:-0}+1))
+  bar::status_changed $StepsDone $TotalSteps
+  sleep 1
+done
+
+bar::stop
+
+#Installing Ghauri
+echo -e "${RED}Installing Ghauri${ENDCOLOR}"
+git clone https://github.com/r0oth3x49/ghauri.git
+cd ghauri
+pip install --upgrade -r requirements.txt
+python setup.py install
+cd ~/Bugbounty/
+echo -e "${GREEN}Successfully${ENDCOLOR}"
+
+. <(curl -sLo- "https://git.io/progressbar")
+
+bar::start
+
+StuffToDo=("Ghauri")
+
+TotalSteps=${#StuffToDo[@]}
+
+for Stuff in ${StuffToDo[@]}; do
+  # Do stuff
+  echo "Create ${Stuff} forr finding SQL injection"
   StepsDone=$((${StepsDone:-0}+1))
   bar::status_changed $StepsDone $TotalSteps
   sleep 1
