@@ -79,6 +79,7 @@ $ ./awesome-bugbounty-builder.sh
 - Liffy
 - SSRF-tool
 - Infoooze
+- Ghauri
 
 ---
 
