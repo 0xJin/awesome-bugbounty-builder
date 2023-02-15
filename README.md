@@ -28,7 +28,7 @@
 ```sh
 $ git clone https://github.com/0xJin/awesome-bugbounty-builder.git
 $ cd awesome-bugbounty-builder/
-$ chmod +x awesome-bugbounty-builder.sh
+$ chmod +x awesome-bugbounty-build.sh
 $ ./awesome-bugbounty-builder.sh
 ```
 
